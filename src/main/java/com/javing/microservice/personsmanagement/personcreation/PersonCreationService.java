@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 public class PersonCreationService {
 
     public Person createPerson(Person person) {
-        System.out.println(person);
-        //TODO if insert in db is successful
-        return null;
+        return person;
     }
 }

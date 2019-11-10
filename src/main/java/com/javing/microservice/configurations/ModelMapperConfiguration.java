@@ -1,20 +1,21 @@
 package com.javing.microservice.configurations;
 
-import org.modelmapper.Converter;
+import com.javing.microservice.personsmanagement.personcreation.dtos.converters.PersonCreationRequestDtoConverter;
+import com.javing.microservice.personsmanagement.personcreation.dtos.converters.PersonCreationResponseDtoConverter;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.Set;
 
 @Configuration
 public class ModelMapperConfiguration {
 
     @Bean
-    ModelMapper modelMapper(Set<Converter> converters) {
+    ModelMapper modelMapper() {
 
         ModelMapper modelMapper = new ModelMapper();
-        converters.forEach(modelMapper::addConverter);
+        modelMapper.addConverter(new PersonCreationRequestDtoConverter());
+        modelMapper.addConverter(new PersonCreationResponseDtoConverter());
+
         return modelMapper;
     }
 }
