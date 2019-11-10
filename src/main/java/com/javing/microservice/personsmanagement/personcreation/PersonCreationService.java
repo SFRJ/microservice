@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PersonCreationService {
 
-    public Person createPerson(Person person) {
-        return person;
+    private final PersonsManagementRepository personsManagementRepository;
+
+    public Person createPerson(final Person person) {
+
+        return personsManagementRepository.createPerson(person);
     }
 }
